@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/driver.css">
     <link rel="stylesheet" href="assets/css/style_alert.css">
-    
+
 </head>
 
 <body>
@@ -34,9 +34,9 @@
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="#preguntas-frecuentes">Preguntas Frecuentes</a></li>
                     <li><a href="#" class="login-btn" onclick="showLoginAlert()" id="loginBtn">Banca en Línea</a></li>
+                    <li><a href="#" class="login-btn" onclick="showLoginAlert()" id="loginBtn">Banca en Línea</a></li>
                 </ul>
             </nav>
-           
         </div>
     </header>
 
@@ -453,25 +453,25 @@
         </div>
     </section>
 
-<div id="customAlert" class="custom-alert">
-    <div class="alert-overlay"></div>
-    <div class="alert-container">
-        <div class="alert-header">
-            <i class="alert-icon"></i>
-            <h3 class="alert-title"></h3>
-            <button class="alert-close" onclick="hideCustomAlert()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="alert-content">
-            <p class="alert-message"></p>
-        </div>
-        <div class="alert-footer">
-            <button class="alert-btn alert-btn-primary" onclick="hideCustomAlert()">Aceptar</button>
-            <button class="alert-btn alert-btn-secondary" onclick="hideCustomAlert()">Cancelar</button>
+    <div id="customAlert" class="custom-alert">
+        <div class="alert-overlay"></div>
+        <div class="alert-container">
+            <div class="alert-header">
+                <i class="alert-icon"></i>
+                <h3 class="alert-title"></h3>
+                <button class="alert-close" onclick="hideCustomAlert()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="alert-content">
+                <p class="alert-message"></p>
+            </div>
+            <div class="alert-footer">
+                <button class="alert-btn alert-btn-primary" onclick="hideCustomAlert()">Aceptar</button>
+                <button class="alert-btn alert-btn-secondary" onclick="hideCustomAlert()">Cancelar</button>
+            </div>
         </div>
     </div>
-</div>
     <!-- Footer -->
     <footer class="footer" id="contacto">
         <div class="container">
@@ -528,7 +528,22 @@
     <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
     <script src="assets/js/driver.js"></script>
     <script src="assets/js/script_alert.js"></script>
+    <script>
+ document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.querySelector(".mobile-menu-btn");
+    const navMenu = document.querySelector(".nav-menu");
 
+   
+    // cerrar menú y devolver botón a la normalidad al hacer clic en un enlace
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        menuBtn.classList.remove("active"); // botón vuelve al estado inicial
+      });
+    });
+  });
+
+    </script>
 </body>
 
 </html>

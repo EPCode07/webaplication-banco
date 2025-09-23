@@ -71,14 +71,24 @@ function initMobileMenu() {
   const navMenu = document.getElementById("navMenu");
 
   if (mobileMenuBtn && navMenu) {
+    // abrir/cerrar con el botón
     mobileMenuBtn.addEventListener("click", () => {
       navMenu.classList.toggle("active");
       mobileMenuBtn.innerHTML = navMenu.classList.contains("active")
         ? '<i class="fas fa-times"></i>'
         : '<i class="fas fa-bars"></i>';
     });
+
+    // cerrar menú y volver a icono "bars" cuando se presiona un enlace
+    navMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
   }
 }
+
 
 function initFAQ() {
   function toggleFAQ(element) {

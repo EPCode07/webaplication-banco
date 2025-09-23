@@ -639,9 +639,11 @@ body {
   .nav-menu.active {
     display: flex;
   }
-
   .mobile-menu-btn {
     display: block;
+    position: absolute;
+    right: 1rem; /* separación desde el borde derecho */
+    top: 2.5rem; /* separación desde arriba */
   }
 
   .hero h1 {
