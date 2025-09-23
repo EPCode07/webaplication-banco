@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco PimPi - Tu Futuro Financiero</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css" />
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/driver.css">
+    <link rel="stylesheet" href="assets/css/style_alert.css">
+    
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div><a href="#inicio"><img class="logo" src="assets/img/logo.png" alt="Logo de Banco PimPi"></a></div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#calculadora">Calculadora</a></li>
+                    <li><a href="#sucursales">Sucursales</a></li>
+                    <li><a href="#noticias">Noticias</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#preguntas-frecuentes">Preguntas Frecuentes</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="login-btn" onclick="showLoginAlert()" id="loginBtn">Banca en Línea</a>
+        </div>
+    </header>
+
+    <!-- Hero Slider Section -->
+    <section class="hero-slider" id="inicio">
+        <div class="slides-container">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <div class="slide-content">
+                    <h1>Tu Futuro Financiero Comienza Aquí</h1>
+                    <p>Experimenta la banca moderna con tecnología de vanguardia, seguridad máxima y atención
+                        personalizada las 24 horas del día.</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn-primary" onclick="showAccountAlert();" id="openAccountBtn">Abrir
+                            Cuenta</a>
+                        <a href="#productos" class="btn-secondary" id="seeProductsBtn">Conocer Productos</a>
+                    </div>
+                </div>
+                <div class="slide-background"></div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Préstamos con las Mejores Tasas</h1>
+                    <p>Obtén el financiamiento que necesitas con condiciones preferenciales y plazos flexibles adaptados
+                        a tus necesidades.</p>
+                    <div class="cta-buttons">
+                        <a href="#calculadora" class="btn-primary">Calcular Préstamo</a>
+                        <a href="#servicios" class="btn-secondary">Ver Servicios</a>
+                    </div>
+                </div>
+                <div class="slide-background"></div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Banca Digital 100% Segura</h1>
+                    <p>Gestiona tus finanzas desde cualquier dispositivo con nuestra plataforma digital certificada y
+                        protegida.</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn-primary" onclick="showLoginAlert()">Banca en Línea</a>
+                        <a href="#app" class="btn-secondary">Descargar App</a>
+                    </div>
+                </div>
+                <div class="slide-background"></div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Atención Personalizada en Sucursales</h1>
+                    <p>Visita cualquiera de nuestras sucursales y recibe asesoramiento especializado de nuestros
+                        ejecutivos.</p>
+                    <div class="cta-buttons">
+                        <a href="#sucursales" class="btn-primary">Encontrar Sucursal</a>
+                        <a href="#contacto" class="btn-secondary">Solicitar Cita</a>
+                    </div>
+                </div>
+                <div class="slide-background"></div>
+            </div>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="slider-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+            <span class="dot" data-slide="3"></span>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="slider-arrow prev-arrow">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-arrow next-arrow">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Auto-play Toggle -->
+        <button class="autoplay-toggle" title="Pausar slider">
+            <i class="fas fa-pause"></i>
+        </button>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container" id="servicesGrid">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">💳</span>
+                    <h3>Banca PimPi</h3>
+                    <p>Accede a todas tus cuentas desde cualquier dispositivo. Transferencias, pagos y consultas
+                        disponibles 24/7.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🏠</span>
+                    <h3>Créditos Hipotecarios</h3>
+                    <p>Tasas preferenciales y planes flexibles para hacer realidad el sueño de tu casa propia.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">📈</span>
+                    <h3>Inversiones</h3>
+                    <p>Portafolios diversificados y asesoría especializada para hacer crecer tu patrimonio.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🚗</span>
+                    <h3>Créditos Vehiculares</h3>
+                    <p>Financia el auto de tus sueños con cuotas cómodas y trámites rápidos.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💼</span>
+                    <h3>Banca Empresarial</h3>
+                    <p>Soluciones financieras integrales para empresas de todos los tamaños.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🛡️</span>
+                    <h3>Seguros</h3>
+                    <p>Protege lo que más importa con nuestros planes de seguros personalizados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="productos">
+        <div class="container" id="productsGrid">
+            <h2 class="section-title">Productos Destacados</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3>Cuenta Premium</h3>
+                    <ul class="product-features">
+                        <li>Sin costo de mantenimiento</li>
+                        <li>Transferencias ilimitadas</li>
+                        <li>Tarjeta de débito internacional</li>
+                        <li>Acceso a salas VIP</li>
+                        <li>Asesor personal dedicado</li>
+                    </ul>
+                    <a href="#" class="btn-primary" onclick="showProductAlert('Premium')">Solicitar</a>
+                </div>
+                <div class="product-card">
+                    <h3>Tarjeta Gold</h3>
+                    <ul class="product-features">
+                        <li>Límite de crédito elevado</li>
+                        <li>Puntos por compras</li>
+                        <li>Seguro de viaje incluido</li>
+                        <li>Descuentos exclusivos</li>
+                        <li>Sin anualidad primer año</li>
+                    </ul>
+                    <a href="#" class="btn-primary" onclick="showProductAlert('Tarjeta Gold')">Solicitar</a>
+                </div>
+                <div class="product-card">
+                    <h3>Ahorro Inteligente</h3>
+                    <ul class="product-features">
+                        <li>Tasa de interés competitiva</li>
+                        <li>Ahorro automático</li>
+                        <li>Metas de ahorro personalizadas</li>
+                        <li>Alertas y recordatorios</li>
+                        <li>Disponibilidad inmediata</li>
+                    </ul>
+                    <a href="#" class="btn-primary" onclick="showProductAlert('Ahorro Inteligente')">Solicitar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section" id="calculadora">
+        <div class="container">
+            <h2 class="section-title">Simulador de Créditos</h2>
+            <div class="calculator-container">
+                <form id="creditCalculator">
+                    <div class="form-group">
+                        <label for="loanAmount">Monto del Préstamo (S/)</label>
+                        <input type="number" id="loanAmount" min="1000" max="5000" value="5000" required>
+                        <input type="range" id="loanAmountRange" min="1000" max="5000" value="5000" step="1"
+                            oninput="updateLoanAmount(this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label for="loanTerm">Plazo (meses)</label>
+                        <select id="loanTerm" required>
+                            <option value="12">12 meses</option>
+                            <option value="24">24 meses</option>
+                            <option value="36" selected>36 meses</option>
+                            <option value="48">48 meses</option>
+                            <option value="60">60 meses</option>
+                            <option value="120">120 meses</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="interestRate">Tasa de Interés Anual (%)</label>
+                        <input type="number" id="interestRate" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="loanType">Tipo de Crédito</label>
+                        <select id="loanType" onchange="updateInterestRate()">
+                            <option value="personal">Préstamo Personal</option>
+                            <option value="vehicular">Crédito Vehicular</option>
+                            <option value="hipotecario">Crédito Hipotecario</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn-primary" onclick="calculateLoan()"
+                        style="width: 100%; margin-top: 1rem;">
+                        Calcular Cuota
+                    </button>
+                </form>
+                <div id="calculatorResult" class="calculator-result">
+                    <h3>Resultado de tu Simulación</h3>
+                    <div id="resultContent">
+                        <p class="text-center" style="text-align: center;">Complete los datos y haga clic en "Calcular
+                            Cuota"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Finder Section -->
+    <section class="location-section" id="sucursales">
+        <div class="container">
+            <h2 class="section-title">Encuentra Nuestras Sucursales</h2>
+            <div class="location-finder">
+                <div class="location-search">
+                    <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Buscar Sucursal</h3>
+                    <div class="form-group">
+                        <label for="citySearch">Ciudad</label>
+                        <select id="citySearch" onchange="filterLocations()">
+                            <option value="">Todas las ciudades</option>
+                            <option value="lima">Lima</option>
+                            <option value="arequipa">Arequipa</option>
+                            <option value="trujillo">Trujillo</option>
+                            <option value="cusco">Cusco</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceFilter">Servicio</label>
+                        <select id="serviceFilter" onchange="filterLocationsAndMap()">
+                            <option value="">Todos los servicios</option>
+                            <option value="atm">Cajero Automático</option>
+                            <option value="branch">Sucursal Completa</option>
+                            <option value="express">Agente Express</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="locationSearch">Buscar por nombre</label>
+                        <input type="text" id="locationSearch" placeholder="Ej: San Isidro" onkeyup="filterLocations()">
+                    </div>
+                    <!-- Botón para geolocalización del usuario -->
+                    <button type="button" class="btn-secondary" onclick="locateUser()"
+                        style="width: 100%; margin-top: 1rem;">
+                        <i class="fas fa-location-arrow"></i> Mi Ubicación
+                    </button>
+                </div>
+
+                <!-- Contenedor para el Mapa y la Lista (tendrán pestañas) -->
+                <div class="location-display">
+                    <!-- Controles de pestaña -->
+                    <div class="view-toggle">
+                        <button class="toggle-btn active" onclick="showView('list')">
+                            <i class="fas fa-list"></i> Lista
+                        </button>
+                        <button class="toggle-btn" onclick="showView('map')">
+                            <i class="fas fa-map-marked-alt"></i> Mapa
+                        </button>
+                    </div>
+
+                    <!-- Vista de Lista (la que ya tenías) -->
+                    <div class="location-list view-container active hidden" id="listView">
+                        <div class="location-item" data-city="lima" data-service="branch" data-lat="-12.099147"
+                            data-lng="-77.033510">
+                            <h4>🏦 Sucursal San Isidro</h4>
+                            <p><strong>Dirección:</strong> Av. Javier Prado Este 492</p>
+                            <p><strong>Horario:</strong> Lun-Vie 9:00-18:00, Sáb 9:00-13:00</p>
+                            <p><strong>Teléfono:</strong> (01) 555-0100</p>
+                            <button class="map-locate-btn" onclick="focusOnMap(-12.099147, -77.033510)">Ver en
+                                Mapa</button>
+                        </div>
+                        <div class="location-item" data-city="lima" data-service="atm" data-lat="-12.121382"
+                            data-lng="-77.029694">
+                            <h4>🏧 Cajero Miraflores</h4>
+                            <p><strong>Dirección:</strong> Av. Larco 345</p>
+                            <p><strong>Horario:</strong> 24 horas</p>
+                            <p><strong>Servicios:</strong> Retiros, Consultas, Depósitos</p>
+                            <button class="map-locate-btn" onclick="focusOnMap(-12.121382, -77.029694)">Ver en
+                                Mapa</button>
+                        </div>
+                        <div class="location-item" data-city="arequipa" data-service="branch" data-lat="-16.409071"
+                            data-lng="-71.537315">
+                            <h4>🏦 Sucursal Arequipa Centro</h4>
+                            <p><strong>Dirección:</strong> Portal de Flores 138</p>
+                            <p><strong>Horario:</strong> Lun-Vie 9:00-17:00</p>
+                            <p><strong>Teléfono:</strong> (054) 555-0200</p>
+                            <button class="map-locate-btn" onclick="focusOnMap(-16.409071, -71.537315)">Ver en
+                                Mapa</button>
+                        </div>
+                        <div class="location-item" data-city="trujillo" data-service="express" data-lat="-8.109202"
+                            data-lng="-79.021461">
+                            <h4>🏪 Agente Express Mall Aventura</h4>
+                            <p><strong>Dirección:</strong> Av. Vallejo 265</p>
+                            <p><strong>Horario:</strong> Lun-Dom 10:00-22:00</p>
+                            <p><strong>Servicios:</strong> Pagos, Consultas, Depósitos</p>
+                            <button class="map-locate-btn" onclick="focusOnMap(-8.109202, -79.021461)">Ver en
+                                Mapa</button>
+                        </div>
+                        <div class="location-item" data-city="cusco" data-service="branch" data-lat="-13.517088"
+                            data-lng="-71.978757">
+                            <h4>🏦 Sucursal Cusco</h4>
+                            <p><strong>Dirección:</strong> Av. El Sol 123</p>
+                            <p><strong>Horario:</strong> Lun-Vie 9:00-17:00, Sáb 9:00-13:00</p>
+                            <p><strong>Teléfono:</strong> (084) 555-0300</p>
+                            <button class="map-locate-btn" onclick="focusOnMap(-13.517088, -71.978757)">Ver en
+                                Mapa</button>
+                        </div>
+                    </div>
+
+                    <!-- Vista de Mapa (nueva) -->
+                    <div class="map-container view-container" id="mapView">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section" id="noticias">
+        <div class="container">
+            <h2 class="section-title">Noticias Financieras</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <img src="https://neocdn.kambista.com/wp-content/uploads/2023/12/cuentas-de-ahorro-1024x684.jpg.webp"
+                        alt="Noticia">
+                    <div class="news-content">
+                        <div class="news-date">15 de Febrero, 2025</div>
+                        <h4>Nuevas Tasas de Interés para Ahorros</h4>
+                        <p>Conoce las nuevas tasas competitivas que ofrecemos para tus cuentas de ahorro y depósitos a
+                            plazo fijo.</p>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="https://canalsenior.es/wp-content/uploads/2022/06/20220622-canal-senior-personas-mayores-apps-banca-populares.png"
+                        alt="Noticia">
+                    <div class="news-content">
+                        <div class="news-date">10 de Febrero, 2025</div>
+                        <h4>Lanzamiento de App Móvil Renovada</h4>
+                        <p>Descarga nuestra nueva aplicación con funciones mejoradas y una interfaz más intuitiva.</p>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="https://emprender.pe/wp-content/uploads/2025/03/SIGO-BLGOS-2023-2.jpg" alt="Noticia">
+                    <div class="news-content">
+                        <div class="news-date">5 de Febrero, 2025</div>
+                        <h4>Programa de Educación Financiera</h4>
+                        <p>Únete a nuestros talleres gratuitos sobre planificación financiera e inversiones
+                            inteligentes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="preguntas-frecuentes">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Cómo puedo abrir una cuenta en Banco PimPi?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Puedes abrir tu cuenta de forma 100% digital desde nuestra página web o app móvil. Solo
+                            necesitas tu DNI, un selfie y completar el formulario en línea. El proceso toma menos de 10
+                            minutos y recibirás tu número de cuenta al instante.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Qué documentos necesito para solicitar un préstamo?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Para la mayoría de nuestros préstamos necesitarás: DNI vigente, último recibo de pago o
+                            declaración de renta si eres independiente, y estados de cuenta de los últimos 3 meses. Los
+                            requisitos específicos varían según el tipo de crédito.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Cómo funciona la seguridad de la banca digital?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Utilizamos encriptación de última generación, autenticación de dos factores y monitoreo
+                            constante de transacciones. Tus datos y dinero están protegidos con los más altos estándares
+                            de seguridad bancaria.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Hay algún costo por usar la banca en línea?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nuestra banca en línea es completamente gratuita. No cobramos por consultas, transferencias
+                            entre cuentas propias ni por el uso de la aplicación móvil. Algunos servicios específicos
+                            pueden tener costos asociados que se detallan claramente en nuestra tarifario.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div id="customAlert" class="custom-alert">
+    <div class="alert-overlay"></div>
+    <div class="alert-container">
+        <div class="alert-header">
+            <i class="alert-icon"></i>
+            <h3 class="alert-title"></h3>
+            <button class="alert-close" onclick="hideCustomAlert()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="alert-content">
+            <p class="alert-message"></p>
+        </div>
+        <div class="alert-footer">
+            <button class="alert-btn alert-btn-primary" onclick="hideCustomAlert()">Aceptar</button>
+            <button class="alert-btn alert-btn-secondary" onclick="hideCustomAlert()">Cancelar</button>
+        </div>
+    </div>
+</div>
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Banca Personal</a></li>
+                        <li><a href="#">Banca Empresarial</a></li>
+                        <li><a href="#">Inversiones</a></li>
+                        <li><a href="#">Seguros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="#">Centro de Ayuda</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Reclamos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Carreras</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Responsabilidad Social</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li>📞 (01) 555-0123</li>
+                        <li>📧 info@bancopimpi.com</li>
+                        <li>📍 Lima, Perú</li>
+                        <li>🕒 24/7 Atención</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Banco PimPi. Todos los derechos reservados. | Términos y Condiciones | Política de
+                    Privacidad</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script_index.js"></script>
+    <script src="assets/js/script_slider.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+    <script src="assets/js/driver.js"></script>
+    <script src="assets/js/script_alert.js"></script>
+
+</body>
+
+</html>
