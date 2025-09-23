@@ -34,7 +34,6 @@
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="#preguntas-frecuentes">Preguntas Frecuentes</a></li>
                     <li><a href="#" class="login-btn" onclick="showLoginAlert()" id="loginBtn">Banca en Línea</a></li>
-                    <li><a href="#" class="login-btn" onclick="showLoginAlert()" id="loginBtn">Banca en Línea</a></li>
                 </ul>
             </nav>
         </div>
@@ -528,22 +527,6 @@
     <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
     <script src="assets/js/driver.js"></script>
     <script src="assets/js/script_alert.js"></script>
-    <script>
- document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.querySelector(".mobile-menu-btn");
-    const navMenu = document.querySelector(".nav-menu");
-
-   
-    // cerrar menú y devolver botón a la normalidad al hacer clic en un enlace
-    document.querySelectorAll(".nav-menu a").forEach(link => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-        menuBtn.classList.remove("active"); // botón vuelve al estado inicial
-      });
-    });
-  });
-
-    </script>
 </body>
 
 </html>
