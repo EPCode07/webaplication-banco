@@ -435,11 +435,13 @@ a {
 /* 5.3. Hero Slider (Carrusel) */
 .hero-slider {
   position: relative;
-  height: 100vh;
-  min-height: 600px;
+  /* Antes: height: 100vh; */
+  /* **NUEVO:** 100% del viewport - la altura de tu header (80px) */
+  height: calc(100vh - 80px); /* Ajuste para escritorio y tabletas */
+  min-height: 520px; /* Reducimos ligeramente el min-height */
   overflow: hidden;
-  /* Estas variables no estaban definidas en :root, las mantengo para referencia. */
-  background: var(--dark-blue);
+  /* Si quieres que empiece justo debajo del header fijo, asegúrate de esto */
+  margin-top: 80px; /* Espacio igual a la altura del header fijo */
 }
 
 .slide {
