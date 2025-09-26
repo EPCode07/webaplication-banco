@@ -1,9 +1,15 @@
+/*==========================================================================
+// 1. SETTINGS & TOOLS (Variables y Resets Fundamentales)
+==========================================================================*/
+
+/* 1.1. Reset Universal: box-sizing y márgenes */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* 1.2. Variables CSS (Custom Properties) */
 :root {
   --primary-blue: #1e3a8a;
   --secondary-blue: #3b82f6;
@@ -16,28 +22,50 @@
   --error: #ef4444;
 }
 
+/* 1.3. Definiciones de Animaciones */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*==========================================================================
+// 2. BASE (Estilos de Elementos HTML Puros)
+==========================================================================*/
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
   scroll-behavior: smooth;
+  /* CORRECCIÓN PARA EVITAR SCROLL HORIZONTAL EN MÓVILES */
+  overflow-x: hidden;
 }
 
-/* Header */
-.header {
-  background: linear-gradient(
-    135deg,
-    var(--primary-blue) 0%,
-    var(--secondary-blue) 100%
-  );
-  color: white;
-  padding: 1rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
+/*==========================================================================
+// 3. LAYOUT (Estructura de la Página)
+==========================================================================*/
+
+/* Contenedores de Ancho Máximo */
 .nav-container {
   max-width: 1600px;
   margin: 0 auto;
@@ -47,117 +75,22 @@ body {
   padding: 0 2rem;
 }
 
-.logo {
-  width: 120px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-.nav-menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-}
-
-.nav-menu a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
-
-.login-btn {
-  background: var(--accent-gold);
-  color: var(--primary-blue);
-  padding: 0.7rem 1.5rem;
-  border: none;
-  border-radius: 25px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.login-btn:hover {
-  background: #f59e0b;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
-}
-
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(
-    135deg,
-    var(--primary-blue) 0%,
-    var(--secondary-blue) 50%,
-    var(--accent-gold) 100%
-  );
-  color: white;
-  padding: 5rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>')
-    repeat;
-}
-
-.hero-content {
-  max-width: 800px;
+.container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  position: relative;
-  z-index: 1;
 }
 
-.hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  animation: slideInUp 1s ease-out;
+/* Clases Utilitarias de Layout */
+.hidden {
+  display: none !important;
 }
 
-.hero p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-  animation: slideInUp 1s ease-out 0.2s both;
-}
+/*==========================================================================
+// 4. COMPONENTS (Módulos Reutilizables: Botones, Tarjetas, Menús)
+==========================================================================*/
 
-.cta-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  animation: slideInUp 1s ease-out 0.4s both;
-}
-
+/* 4.1. Botones Generales (CTA) */
 .btn-primary,
 .btn-secondary {
   padding: 1rem 2rem;
@@ -194,31 +127,7 @@ body {
   transform: translateY(-3px);
 }
 
-/* Services Section */
-.services {
-  padding: 5rem 0;
-  background: var(--bg-light);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--primary-blue);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
+/* 4.2. Tarjetas de Servicio */
 .service-card {
   background: white;
   padding: 2rem;
@@ -246,19 +155,7 @@ body {
   font-size: 1.5rem;
 }
 
-/* Products Section */
-.products {
-  padding: 5rem 0;
-  background: white;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
+/* 4.3. Tarjetas de Producto */
 .product-card {
   background: linear-gradient(
     135deg,
@@ -320,7 +217,439 @@ body {
   font-weight: bold;
 }
 
-/* Calculator Section */
+/* 4.4. Tarjetas de Noticias */
+.news-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.news-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-content {
+  padding: 1.5rem;
+}
+
+.news-date {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.news-card h4 {
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* 4.5. Acordeón (FAQ) */
+.faq-item {
+  margin-bottom: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 1.5rem;
+  background: var(--bg-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background: #e5e7eb;
+}
+
+.faq-answer {
+  padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+  padding: 1.5rem 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(180deg);
+}
+
+/*==========================================================================
+// 5. SECTIONS (Estilos específicos de Bloques de Contenido)
+==========================================================================*/
+
+/* 5.1. Header (Navegación Principal) */
+.header {
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue) 0%,
+    var(--secondary-blue) 100%
+  );
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease-out;
+}
+
+.header-hidden {
+  transform: translateY(-100%);
+}
+.logo {
+  width: 120px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.nav-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.login-btn {
+  background: var(--accent-gold);
+  color: var(--primary-blue);
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.login-btn:hover {
+  background: #f59e0b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 5.2. Hero Section (Principal) */
+.hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue) 0%,
+    var(--secondary-blue) 50%,
+    var(--accent-gold) 100%
+  );
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>')
+    repeat;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  animation: slideInUp 1s ease-out;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  animation: slideInUp 1s ease-out 0.2s both;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: slideInUp 1s ease-out 0.4s both;
+}
+
+/* 5.3. Hero Slider (Carrusel) */
+.hero-slider {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  /* Estas variables no estaban definidas en :root, las mantengo para referencia. */
+  background: var(--dark-blue);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ... Estilos del slider (background, dots, arrows, etc.) ... (Se mantienen) */
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--dark-blue) 0%, var(--blue) 100%);
+  z-index: -1;
+}
+
+/* ... Estilos específicos de imágenes de fondo (Se mantienen) ... */
+.slide:nth-child(1) .slide-background {
+  background-image: url("../img/imagen1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide:nth-child(2) .slide-background {
+  background-image: url("../img/imagen2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide:nth-child(3) .slide-background {
+  background-image: url("../img/imagen3.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide:nth-child(4) .slide-background {
+  background-image: url("../img/imagen4.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide-content {
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 2rem;
+  z-index: 2;
+}
+
+.slide-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slide-content p {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.slider-arrow:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-arrow {
+  left: 2rem;
+}
+
+.next-arrow {
+  right: 2rem;
+}
+
+.autoplay-toggle {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.autoplay-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 5.4. Servicios, Productos, Noticias, Calculadora, etc. */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary-blue);
+}
+
+.services {
+  padding: 5rem 0;
+  background: var(--bg-light);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.products {
+  padding: 5rem 0;
+  background: white;
+}
+
+/* GRILLA DE PRODUCTOS: ANCHO MÍNIMO GRANDE CORREGIDO EN MEDIA QUERY */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
 .calculator-section {
   padding: 5rem 0;
   background: var(--bg-light);
@@ -398,7 +727,6 @@ body {
   border-top: 2px solid var(--accent-gold);
 }
 
-/* Location Section */
 .location-section {
   padding: 5rem 0;
   background: white;
@@ -449,223 +777,6 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* News Section */
-.news-section {
-  padding: 5rem 0;
-  background: var(--bg-light);
-}
-
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.news-card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.news-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.news-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.news-content {
-  padding: 1.5rem;
-}
-
-.news-date {
-  color: var(--text-light);
-  font-size: 0.9rem;
-  margin-bottom: 0.8rem;
-}
-
-.news-card h4 {
-  color: var(--primary-blue);
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-/* FAQ Section */
-.faq-section {
-  padding: 5rem 0;
-  background: white;
-}
-
-.faq-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.faq-item {
-  margin-bottom: 1rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.faq-question {
-  padding: 1.5rem;
-  background: var(--bg-light);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.faq-question:hover {
-  background: #e5e7eb;
-}
-
-.faq-answer {
-  padding: 0 1.5rem;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.faq-answer p {
-  padding: 1.5rem 0;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
-}
-
-.faq-item.active .faq-toggle {
-  transform: rotate(180deg);
-}
-
-/* Footer */
-.footer {
-  background: var(--text-dark);
-  color: white;
-  padding: 3rem 0 1rem;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.footer-section h4 {
-  color: var(--accent-gold);
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.footer-section ul {
-  list-style: none;
-}
-
-.footer-section ul li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-section ul li a {
-  color: #d1d5db;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-  color: var(--accent-gold);
-}
-
-.footer-bottom {
-  border-top: 1px solid #374151;
-  padding-top: 1rem;
-  text-align: center;
-  color: #9ca3af;
-}
-
-/* Animations */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Mobile Responsive */
-@media (max-width: 992px) {
-  .calculator-container,
-  .location-finder {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--primary-blue);
-    flex-direction: column;
-    padding: 1rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-menu.active {
-    display: flex;
-  }
-  .mobile-menu-btn {
-    display: block;
-    position: absolute;
-    right: 1rem; /* separación desde el borde derecho */
-    top: 2.5rem; /* separación desde arriba */
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
 .view-toggle {
   display: flex;
   background: var(--bg-light);
@@ -711,7 +822,6 @@ body {
   z-index: 1;
 }
 
-/* Estilo para el botón "Ver en Mapa" en los items de la lista */
 .map-locate-btn {
   background: var(--secondary-blue);
   color: white;
@@ -728,18 +838,6 @@ body {
   background: var(--primary-blue);
 }
 
-/* Ajustes de responsividad para el mapa */
-@media (max-width: 768px) {
-  .view-toggle {
-    flex-direction: column;
-  }
-
-  .view-container {
-    height: 400px;
-  }
-}
-
-/* Estilos para los marcadores del mapa (Popups) */
 .leaflet-popup-content {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -754,199 +852,144 @@ body {
   font-size: 0.9rem;
 }
 
-/* Clase para ocultar elementos */
-.hidden {
-  display: none !important;
+.news-section {
+  padding: 5rem 0;
+  background: var(--bg-light);
 }
 
-/* Hero Slider Styles */
-.hero-slider {
-  position: relative;
-  height: 100vh;
-  min-height: 600px;
-  overflow: hidden;
-  background: var(--dark-blue);
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 1s ease-in-out, visibility 1s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* asegura que el overlay no se desborde */
-}
-
-.slide::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* tono negro con transparencia */
-  z-index: 1;
-}
-
-.slide.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.slide-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--dark-blue) 0%, var(--blue) 100%);
-  z-index: -1;
-}
-
-.slide:nth-child(1) .slide-background {
-  background-image: url("../img/imagen1.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.slide:nth-child(2) .slide-background {
-  background-image: url("../img/imagen2.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.slide:nth-child(3) .slide-background {
-  background-image: url("../img/imagen3.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.slide:nth-child(4) .slide-background {
-  background-image: url("../img/imagen4.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.slide-content {
-  text-align: center;
-  color: white;
-  max-width: 800px;
-  padding: 0 2rem;
-  z-index: 2;
-}
-
-.slide-content h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.slide-content p {
-  font-size: 1.3rem;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* Slider Navigation Dots */
-.slider-dots {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 1rem;
-  z-index: 10;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.dot.active {
+.faq-section {
+  padding: 5rem 0;
   background: white;
-  transform: scale(1.2);
 }
 
-.dot:hover {
-  background: rgba(255, 255, 255, 0.8);
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* Slider Arrows */
-.slider-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
+/* 5.5. Footer */
+.footer {
+  background: var(--text-dark);
   color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 3rem 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
   font-size: 1.2rem;
-  transition: all 0.3s ease;
-  z-index: 10;
 }
 
-.slider-arrow:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-50%) scale(1.1);
+.footer-section ul {
+  list-style: none;
 }
 
-.prev-arrow {
-  left: 2rem;
+.footer-section ul li {
+  margin-bottom: 0.5rem;
 }
 
-.next-arrow {
-  right: 2rem;
+.footer-section ul li a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* Auto-play Toggle */
-.autoplay-toggle {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  z-index: 10;
+.footer-section ul li a:hover {
+  color: var(--accent-gold);
 }
 
-.autoplay-toggle:hover {
-  background: rgba(255, 255, 255, 0.3);
+.footer-bottom {
+  border-top: 1px solid #374151;
+  padding-top: 1rem;
+  text-align: center;
+  color: #9ca3af;
 }
 
-/* Responsive Design */
+/*==========================================================================
+// 6. TRUMPS & RESPONSIVE (Media Queries y Sobrescrituras)
+==========================================================================*/
+
+/* Desktops y Tabletas Grandes */
+@media (max-width: 992px) {
+  .calculator-container,
+  .location-finder {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MÓVIL (Smartphones - Hasta 768px) */
 @media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--primary-blue);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  /* Ajuste para que el botón no interfiera con el padding del nav-container */
+  .mobile-menu-btn {
+    display: block;
+    position: absolute;
+    right: 2rem; /* Coincide con el padding del nav-container */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .nav-container {
+    padding: 0 1rem; /* Reducir padding horizontal en móviles */
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .view-toggle {
+    flex-direction: column;
+  }
+
+  .view-container {
+    height: 400px;
+  }
+
+  /* Slider Responsive */
   .slide-content h1 {
     font-size: 2.5rem;
   }
@@ -971,5 +1014,30 @@ body {
 
   .slider-dots {
     bottom: 1rem;
+  }
+}
+
+/* CORRECCIÓN DE DESBORDE EN MÓVILES (Smartphones pequeños - Hasta 480px) */
+@media (max-width: 480px) {
+  /*
+     * Solución al desborde: Reducimos el ancho mínimo de las tarjetas de producto
+     * de 350px (que es demasiado) a un valor más seguro o a 1fr forzado.
+     */
+  .products-grid {
+    /*
+         * Al usar 'repeat(auto-fit, minmax(280px, 1fr))', las columnas
+         * se ajustarán al 100% en pantallas menores a 280px.
+         */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  /* Reducir el padding de la tarjeta para móviles muy pequeños */
+  .product-card {
+    padding: 1.5rem;
+  }
+
+  /* También aplicamos la corrección a la grilla de Noticias */
+  .news-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }

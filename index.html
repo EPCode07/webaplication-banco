@@ -19,7 +19,11 @@
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
-            <div><a href="#inicio"><img class="logo" src="assets/img/logo.png" alt="Logo de Banco PimPi"></a></div>
+            <div>
+                <a href="#inicio" class="logo-link">
+                    <img class="logo" src="assets/img/logo.png" alt="Logo de Banco PimPi">
+                </a>
+            </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -206,10 +210,10 @@
 
     <!-- Calculator Section -->
     <section class="calculator-section" id="calculadora">
-        <div class="container">
+        <div class="container" id="creditCalculator">
             <h2 class="section-title">Simulador de Créditos</h2>
             <div class="calculator-container">
-                <form id="creditCalculator">
+                <form >
                     <div class="form-group">
                         <label for="loanAmount">Monto del Préstamo (S/)</label>
                         <input type="number" id="loanAmount" min="1000" max="5000" value="5000" required>
@@ -506,7 +510,7 @@
                     <h4>Contacto</h4>
                     <ul>
                         <li>📞 (01) 555-0123</li>
-                        <li>📧 info@bancopimpi.com</li>
+                        <li>📧 <a href="mailto:info@bancopimpi.com" style="color: inherit;">info@bancopimpi.com</a></li>
                         <li>📍 Lima, Perú</li>
                         <li>🕒 24/7 Atención</li>
                     </ul>
