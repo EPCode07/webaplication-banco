@@ -79,6 +79,16 @@ const driverObj = driver({
         align: "start",
       },
     },
+    {
+      element: "#socialMediaContainer",
+      popover: {
+        title: "Redes Sociales",
+        description:
+          "Accede a nuestras redes sociales para estar al tanto de las noticias financieras y promociones.",
+        side: "left",
+        align: "start",
+      },
+    },
   ],
   showButtons: ["next", "previous"],
   nextBtnText: "Siguiente ➡️",
@@ -86,7 +96,6 @@ const driverObj = driver({
   doneBtnText: "Finalizar ✅",
 });
 
-// Retrasa la ejecución de driverObj.drive() por 7000 milisegundos (7 segundos)
 setTimeout(() => {
   driverObj.drive();
 }, 7000);

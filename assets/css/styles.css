@@ -959,7 +959,7 @@ a {
 }
 
 .child-1:hover {
-  box-shadow: 0px 10px 10px #1e90ff;
+  box-shadow: 0px 10px 10px #ff0000;
 }
 
 .child-2:hover {
@@ -967,13 +967,16 @@ a {
 }
 
 .child-3:hover {
-  box-shadow: 0px 10px 10px #000;
+  box-shadow: 0px 10px 10px #25d366;
 }
 
 .child-4:hover {
   box-shadow: 0px 10px 10px #4267b2;
 }
 
+.child-5:hover {
+  box-shadow: 0px 10px 10px #000000;
+}
 .button {
   cursor: pointer;
   width: 100%;
@@ -986,7 +989,7 @@ a {
 }
 
 .child:hover > .button {
-  transform: translate3d(0px, 20px, 30px) perspective(80px) rotateX(-60deg)
+  transform: translate3d(0px, 40px, 45px) perspective(80px) rotateX(-60deg)
     translateY(2px) translateZ(10px);
 }
 
