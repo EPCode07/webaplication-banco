@@ -1,0 +1,593 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.loading {
+  overflow: hidden;
+}
+
+/* Loader Container */
+#loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #1e3a8a 0%, #0f172a 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+  overflow: hidden;
+}
+
+#loader-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Partículas de fondo */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(251, 191, 36, 0.1);
+  border-radius: 50%;
+  animation: float-particle 12s infinite ease-in-out;
+}
+
+.particle:nth-child(1) {
+  width: 60px;
+  height: 60px;
+  left: 15%;
+  animation-delay: 0s;
+}
+.particle:nth-child(2) {
+  width: 40px;
+  height: 40px;
+  left: 75%;
+  animation-delay: 3s;
+}
+.particle:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  animation-delay: 6s;
+}
+
+.loader-content {
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 10;
+}
+
+/* Tarjeta Bancaria */
+.card-container {
+  perspective: 1500px;
+  margin-bottom: 50px;
+}
+
+.bank-card {
+  width: 380px;
+  height: 240px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: card-entrance 1.5s ease-out forwards,
+    card-float 4s ease-in-out 1.5s infinite;
+}
+
+.card-face {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(59, 130, 246, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto holográfico en la tarjeta */
+.card-face::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(251, 191, 36, 0.1) 50%,
+    transparent 70%
+  );
+  animation: holographic 3s linear infinite;
+}
+
+/* Patrón de fondo de la tarjeta */
+.card-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.03) 10px,
+    rgba(255, 255, 255, 0.03) 20px
+  );
+}
+
+/* Chip de la tarjeta */
+.card-chip {
+  width: 50px;
+  height: 40px;
+  background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%);
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 25px;
+  animation: chip-appear 0.5s ease-out 0.8s backwards,
+    chip-glow 2s ease-in-out 1.5s infinite;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Líneas del chip */
+.chip-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  padding: 4px;
+}
+
+.chip-line {
+  background: rgba(30, 58, 138, 0.3);
+  border-radius: 1px;
+}
+
+/* Número de tarjeta */
+.card-number {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  margin: 20px 0;
+  font-family: "Courier New", monospace;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  animation: number-appear 0.8s ease-out 1s backwards;
+}
+
+.card-number span {
+  display: inline-block;
+  animation: digit-pop 0.3s ease-out backwards;
+}
+
+.card-number span:nth-child(1) {
+  animation-delay: 1.1s;
+}
+.card-number span:nth-child(2) {
+  animation-delay: 1.15s;
+}
+.card-number span:nth-child(3) {
+  animation-delay: 1.2s;
+}
+.card-number span:nth-child(4) {
+  animation-delay: 1.25s;
+}
+.card-number span:nth-child(5) {
+  animation-delay: 1.3s;
+}
+.card-number span:nth-child(6) {
+  animation-delay: 1.35s;
+}
+.card-number span:nth-child(7) {
+  animation-delay: 1.4s;
+}
+.card-number span:nth-child(8) {
+  animation-delay: 1.45s;
+}
+.card-number span:nth-child(9) {
+  animation-delay: 1.5s;
+}
+.card-number span:nth-child(10) {
+  animation-delay: 1.55s;
+}
+.card-number span:nth-child(11) {
+  animation-delay: 1.6s;
+}
+.card-number span:nth-child(12) {
+  animation-delay: 1.65s;
+}
+.card-number span:nth-child(13) {
+  animation-delay: 1.7s;
+}
+.card-number span:nth-child(14) {
+  animation-delay: 1.75s;
+}
+.card-number span:nth-child(15) {
+  animation-delay: 1.8s;
+}
+.card-number span:nth-child(16) {
+  animation-delay: 1.85s;
+}
+.card-number span:nth-child(17) {
+  animation-delay: 1.9s;
+}
+.card-number span:nth-child(18) {
+  animation-delay: 1.95s;
+}
+.card-number span:nth-child(19) {
+  animation-delay: 2s;
+}
+
+/* Información del titular */
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 15px;
+  animation: info-appear 0.6s ease-out 2s backwards;
+}
+
+.card-holder {
+  flex: 1;
+}
+
+.card-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  margin-bottom: 5px;
+}
+
+.card-value {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Logo del banco en la tarjeta */
+.card-logo {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+  animation: logo-appear 0.6s ease-out 0.5s backwards;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+}
+
+/* Banda contactless */
+.contactless {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  animation: contactless-appear 0.5s ease-out 2.2s backwards;
+}
+
+.contactless-wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(251, 191, 36, 0.6);
+  border-radius: 50%;
+  animation: wave-pulse 2s ease-out 2.5s infinite;
+}
+
+.contactless-wave:nth-child(2) {
+  animation-delay: 2.7s;
+}
+
+.contactless-wave:nth-child(3) {
+  animation-delay: 2.9s;
+}
+
+/* Texto principal */
+.main-text {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+  animation: text-appear 0.8s ease-out 2.5s backwards;
+}
+
+/* Barra de progreso */
+.progress-container {
+  width: 380px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin: 25px auto;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: progress-appear 0.5s ease-out 2.8s backwards;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6 0%, #fbbf24 50%, #fcd34d 100%);
+  background-size: 200% 100%;
+  border-radius: 10px;
+  width: 0%;
+  animation: progress 3s ease-in-out 3s forwards,
+    shimmer 2s ease-in-out 3s infinite;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+}
+
+/* Texto de carga */
+.loading-text {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  animation: loading-appear 0.5s ease-out 3s backwards;
+}
+
+.loading-dots::after {
+  content: "";
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+/* Animaciones */
+@keyframes card-entrance {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) rotateX(-30deg) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes card-float {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(2deg);
+  }
+}
+
+@keyframes holographic {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes chip-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes chip-glow {
+  0%,
+  100% {
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4),
+      inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(251, 191, 36, 0.8),
+      0 0 30px rgba(251, 191, 36, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes number-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes digit-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes info-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logo-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes contactless-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes wave-pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes text-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progress-appear {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes loading-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes float-particle {
+  0%,
+  100% {
+    transform: translateY(100vh) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20vh) scale(1.5);
+  }
+  90% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    content: "";
+  }
+  40% {
+    content: ".";
+  }
+  60% {
+    content: "..";
+  }
+  80%,
+  100% {
+    content: "...";
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bank-card {
+    width: 320px;
+    height: 200px;
+  }
+
+  .card-face {
+    padding: 25px;
+  }
+
+  .card-chip {
+    width: 40px;
+    height: 32px;
+  }
+
+  .card-number {
+    font-size: 20px;
+  }
+
+  .card-logo {
+    font-size: 16px;
+  }
+
+  .progress-container {
+    width: 320px;
+  }
+
+  .main-text {
+    font-size: 24px;
+  }
+}

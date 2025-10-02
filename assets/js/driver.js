@@ -86,4 +86,7 @@ const driverObj = driver({
   doneBtnText: "Finalizar ✅",
 });
 
-driverObj.drive();
+// Retrasa la ejecución de driverObj.drive() por 7000 milisegundos (7 segundos)
+setTimeout(() => {
+  driverObj.drive();
+}, 7000);
